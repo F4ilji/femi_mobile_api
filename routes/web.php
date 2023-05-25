@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/download', function () {
+    $file = public_path().'/app.apk'; // указываем путь к файлу
+    $headers = array('Content-Type: application/vnd.android.package-archive'); // указываем тип файла
+    return response()->download($file, 'app.apk', $headers); // запускаем скачивание файла
+});
