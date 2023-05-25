@@ -19,6 +19,6 @@ Route::get('/', function () {
 
 Route::get('/download', function () {
     $file = public_path().'/app.apk'; // указываем путь к файлу
-    $headers = array('Content-Type: application/vnd.android.package-archive'); // указываем тип файла
+    $headers = array('Content-Type: application/zip'); // указываем тип файла
     return response()->download($file, 'app.apk', $headers); // запускаем скачивание файла
 });
